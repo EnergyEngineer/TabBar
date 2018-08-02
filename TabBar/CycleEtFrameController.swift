@@ -10,6 +10,9 @@ import UIKit
 
 class CycleEtFrameController: UIViewController {
 
+    @IBOutlet weak var vueFrameEtBounds: UIView!
+    
+    
     // Pour appeler quelque chose une seule fois :
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,17 @@ class CycleEtFrameController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("View did appear")
+        print("Frame -> : \(vueFrameEtBounds.frame)") //retourne (x, y, L, H) par rapport à la vue qui le contient
+        print("Bounds -> : \(vueFrameEtBounds.bounds)") //retourne (0, 0, L, H) par rapport à lui même
+    
+        UIView.animate(withDuration: 2, animations: {
+            self.vueFrameEtBounds.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi)/4)
+            }) { (success) in
+            print("Frame -> : \(self.vueFrameEtBounds.frame)")
+            print("Bounds -> : \(self.vueFrameEtBounds.bounds)")
+        }
+       
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,6 +52,8 @@ class CycleEtFrameController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("View did appear")
+        
+        
     }
     
     

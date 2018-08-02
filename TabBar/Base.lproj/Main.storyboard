@@ -51,6 +51,9 @@
                         <viewLayoutGuide key="safeArea" id="NM9-Dm-vGx"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="9Gq-fF-2xp"/>
+                    <connections>
+                        <outlet property="vueFrameEtBounds" destination="vHc-G4-Cjz" id="bjP-c1-3YB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NwH-Su-LWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
