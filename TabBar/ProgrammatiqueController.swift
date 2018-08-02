@@ -10,6 +10,7 @@ import UIKit
 
 class ProgrammatiqueController: UIViewController {
     
+    @IBOutlet weak var scroll: UIScrollView!
     
     // Définition des variables
     var monPremierUIView : UIView?
@@ -90,6 +91,24 @@ class ProgrammatiqueController: UIViewController {
         
         maPremiereImageView?.isUserInteractionEnabled=true
         maPremiereImageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageAppuye)))
+        
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////// Scroll View///////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        let couleurs: [UIColor] = [.red, .blue, .white, .black]
+        var maximum: CGFloat = maPremiereImageView!.frame.maxY
+        
+        for couleur in couleurs {
+            let vue = UIView(frame: CGRect(x: 0, y: maximum + 10, width: 100, height: 100))
+            vue.backgroundColor = couleur
+            scroll.addSubview(vue)
+            maximum = vue.frame.maxY
+        }
+        
+        scroll.contentSize = CGSize(width: view.frame.width*2, height: maximum+100)
         
     }
     

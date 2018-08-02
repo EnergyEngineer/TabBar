@@ -17,10 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="Sdr-vj-rEo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKD-Ng-HHf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AKD-Ng-HHf" firstAttribute="leading" secondItem="VpV-XF-B1N" secondAttribute="leading" id="Chc-ix-Pph"/>
+                            <constraint firstItem="AKD-Ng-HHf" firstAttribute="bottom" secondItem="VpV-XF-B1N" secondAttribute="bottom" id="IQf-mV-hez"/>
+                            <constraint firstItem="AKD-Ng-HHf" firstAttribute="trailing" secondItem="VpV-XF-B1N" secondAttribute="trailing" id="QW5-OD-Bov"/>
+                            <constraint firstItem="AKD-Ng-HHf" firstAttribute="top" secondItem="Sdr-vj-rEo" secondAttribute="top" id="wnc-yI-daC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VpV-XF-B1N"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="Nym-kG-Ug8"/>
+                    <connections>
+                        <outlet property="scroll" destination="AKD-Ng-HHf" id="ais-gN-VKL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1k-Qx-gbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
