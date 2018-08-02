@@ -15,6 +15,7 @@ class ProgrammatiqueController: UIViewController {
     var monPremierUIView : UIView?
     var monPremierLabel: UILabel?
     var monPremierBouton: UIButton?
+    var maPremiereImageView: UIImageView?
 
     
     override func viewDidLoad() {
@@ -31,8 +32,8 @@ class ProgrammatiqueController: UIViewController {
         guard monPremierUIView != nil else {return}
         
         view.addSubview(monPremierUIView!)
-        print(monPremierUIView?.frame)
-        print(monPremierUIView?.bounds)
+        print(monPremierUIView?.frame as Any)
+        print(monPremierUIView?.bounds as Any)
         
         let secondeVue = UIView(frame: monPremierUIView!.frame)
         secondeVue.center.y += 50
@@ -72,12 +73,34 @@ class ProgrammatiqueController: UIViewController {
         
         monPremierBouton?.addTarget(self, action: #selector(boutonAppuye), for: .touchUpInside)
         
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////// UIImageView///////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        
+        let largeur = view.frame.width;
+        
+        let rectIV = CGRect(x: (view.frame.width/2)-(largeur/4), y: (view.frame.height/2)-(largeur/4), width: largeur/2, height: largeur/2)
+        maPremiereImageView = UIImageView(frame: rectIV)
+        maPremiereImageView?.image = UIImage(named: "turn-off-png-9")
+        maPremiereImageView?.contentMode = .scaleAspectFill
+        maPremiereImageView?.clipsToBounds = true
+        maPremiereImageView?.layer.cornerRadius = maPremiereImageView!.frame.width/2
+        view.addSubview(maPremiereImageView!)
+        view.sendSubview(toBack: maPremiereImageView!)
+        
+        maPremiereImageView?.isUserInteractionEnabled=true
+        maPremiereImageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageAppuye)))
         
     }
     
     @objc func boutonAppuye(){
         print("Tu as bien appuyé")
 
+    }
+    
+    @objc func imageAppuye(){
+        print("Image appuyée")
+        
     }
     
 }
