@@ -11,6 +11,7 @@ import UIKit
 class ProgrammatiqueController: UIViewController {
     
     var monPremierUIView : UIView?
+    var monPremierLabel: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,13 @@ class ProgrammatiqueController: UIViewController {
         troisiemeVue.backgroundColor = UIColor.blue
         view.addSubview(troisiemeVue)
         
+        monPremierLabel = UILabel(frame: CGRect(x: 0, y: monPremierUIView!.frame.maxY+20, width: view.frame.width, height: 50))
+        monPremierLabel?.text="Coucou je suis un text"
+        monPremierLabel?.numberOfLines = 1
+        monPremierLabel?.textColor = UIColor.white
+        monPremierLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        monPremierLabel?.textAlignment = .center
+        view.addSubview(monPremierLabel!)
         
         
     }
